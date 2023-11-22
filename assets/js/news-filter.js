@@ -16,12 +16,12 @@ window.addEventListener("DOMContentLoaded", () => {
                 item.style.display = "none";
                 item.classList.remove('show-posts');   
             })
-            tabs[index].classList.add('active-tab');
-            news[index].style.display = "grid";
-            news[index].classList.add('show-posts');
+            tabs[i].classList.add('active-tab');
+            news[i].style.display = "grid";
+            news[i].classList.add('show-posts');
         }
 
-        showCategory(0);
+        showCategory();
 
         function pageList(){
             const blogPosts = document.querySelectorAll(".news__wrap__content__wrap");
