@@ -12,13 +12,17 @@ window.addEventListener('DOMContentLoaded', () => {
         mask: '+{7}(000)000-00-00'
     })
     
-    function mobileMenu(triggerSel, menuSel) {
+    function mobileMenu(triggerSel, menuSel, closeBtnSel) {
         const trigger = document.querySelector(triggerSel),
-            menu = document.querySelector(menuSel);
+            menu = document.querySelector(menuSel),
+            close = document.querySelector(closeBtnSel);
     
         trigger.addEventListener('click', () => {
-            menu.classList.toggle('hide-mobile');
-            trigger.classList.toggle('close-active');
+            menu.classList.remove('hide-mobile');
+        })
+
+        close.addEventListener('click', () => {
+            menu.classList.add('hide-mobile');
         })
     }
 
@@ -73,9 +77,29 @@ window.addEventListener('DOMContentLoaded', () => {
     
     }
 
+    function headerScroll(headerBottomSel, headerTopSel){
+        const headerBottom = document.querySelector(headerBottomSel),
+            headerTop = document.querySelector(headerTopSel);
+    
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50 || window.screenY > 50){
+                headerBottom.style.padding = "20px 0";
+                headerBottom.style.boxShadow = "0 2px 2px #9b9b9b";
+                headerTop.style.padding = "0 0";
+            }else{
+                headerBottom.style.padding = "50px 0";
+                headerBottom.style.boxShadow = "none";
+                headerTop.style.padding = "15px 0";
+            }
+        })
+    }
+
     toggleMenu('.menu__submenu', '.menu__submenu__toggle-menu', '.menu__submenu__arrow', '.menu__submenu__toggle-menu__item');
 
-    mobileMenu('.mobile-btn', '.mobile-menu');
+    mobileMenu('.mobile-btn', '.mobile-menu', '.mobile-menu__close');
 
     modal('.header-btn', '.modal', '.modal__window__close');
+
+    headerScroll('.header-bottom', '.header-top');
+
 })

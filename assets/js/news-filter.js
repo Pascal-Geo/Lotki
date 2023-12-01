@@ -1,9 +1,8 @@
 window.addEventListener("DOMContentLoaded", () => {
 
-    function newsFilter(newsSel, tabsSel, tabBlockSel){
+    function newsFilter(newsSel, tabsSel){
         const news = document.querySelectorAll(newsSel),
-            tabs = document.querySelectorAll(tabsSel),
-            tabHead = document.querySelector(tabBlockSel);
+            tabs = document.querySelectorAll(tabsSel);
 
         let index = 0;
         
@@ -86,6 +85,14 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
+            if (block.childNodes.length > 6){
+                block.childNodes.forEach((item, i) => {
+                    if (i == block.childNodes.length - 1){ 
+                        item.style.display = "none";
+                    }
+                })
+            }
+
         };
 
         addToPageNumber();
@@ -109,6 +116,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const blogPosts = document.querySelectorAll('.news__wrap__content__wrap');
             const postsBlog = blogPosts[activeIndex].querySelectorAll('.news__wrap__content__wrap__item');
             const numsBlock = document.querySelectorAll('.news__wrap__content__wrap__quant__item');
+
     
             let mas = [0,1,2,3];
             
@@ -198,21 +206,18 @@ window.addEventListener("DOMContentLoaded", () => {
             
         }
         
-        tabHead.addEventListener('click', (e) => {
-            if (e.target && e.target.classList.contains(tabsSel.slice(1))){
-                tabs.forEach((tab, i) => {
-                    tab.addEventListener('click', () => {
-                        index = i;
-                        showCategory(index);
-                        addToPageNumber(index);
-                        activeBlock();
-                        slider();
-                    })
-                })
-            }
+        tabs.forEach((tab, i) => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                index = i;
+                showCategory(index);
+                addToPageNumber(index);
+                activeBlock();
+                slider();
+            })
         })
     }
 
-    newsFilter('.news__wrap__content__wrap', '.news__wrap__tabs__item', '.news__wrap__tabs');
+    newsFilter('.news__wrap__content__wrap', '.news__wrap__tabs__item');
 
 })
