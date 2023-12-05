@@ -70,8 +70,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     mobileMenu('.mobile-btn', '.mobile-menu', '.mobile-menu__close');
 
-    modal('.header-btn', '.modal', '.modal__window__close');
+    modal('.modal-trigger', '.modal', '.modal__window__close');
 
     headerScroll('.header-bottom', '.header-top');
+
+    Fancybox.bind('[data-fancybox="develop-foto"]', {
+        // Your custom options
+    });
+
 
 })

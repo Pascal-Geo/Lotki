@@ -616,9 +616,11 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -631,6 +633,7 @@ nav {
   text-transform: uppercase;
   color: #151515;
   text-decoration: none;
+  margin-right: 15px;
 }
 .menu__item::after {
   content: "";
@@ -2371,7 +2374,7 @@ footer .footer-wrap__menu-sect__products__submenu__item:hover:after {
   width: 60px;
   background-color: #9b9b9b;
 }
-.company-plus__wrap__item:nth-child(3):after {
+.company-plus__wrap__item:nth-child(3n+3):after {
   display: none;
 }
 .company-plus__wrap__item:last-child:after {
@@ -2762,9 +2765,9 @@ footer .footer-wrap__menu-sect__products__submenu__item:hover:after {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2989,23 +2992,25 @@ footer .footer-wrap__menu-sect__products__submenu__item:hover:after {
   margin-top: 10px;
   margin-bottom: 50px;
 }
-.sponsors__mask {
-  position: relative;
-  height: 400px;
+.sponsors__wrap {
   width: 100%;
-  background: url(./assets/img/цв.webp) center bottom/contain repeat;
-  background-attachment: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.sponsors__mask__fon {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(21, 21, 21, 0.4);
+.sponsors__wrap__mask {
+  height: 300px;
+  width: 30%;
+  background: url(./assets/img/цв.png) center center/contain no-repeat;
 }
-.sponsors__mask .container {
-  padding: 40px 20px;
-}
-.sponsors__content {
-  width: 100%;
+.sponsors__wrap__content {
+  width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3019,92 +3024,102 @@ footer .footer-wrap__menu-sect__products__submenu__item:hover:after {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin-top: 40px;
+  padding: 50px;
 }
-.sponsors__content__text {
-  color: #FFF;
-  text-shadow: 2px 2px 6px #151515;
-  margin-top: 10px;
+.sponsors__wrap__content__text {
+  color: #151515;
 }
-.sponsors__content__link {
+.sponsors__wrap__content__link {
   height: 40px;
   width: 500px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   text-decoration: none;
   padding: 10px 15px;
   margin-top: 40px;
 }
-.sponsors__content__link::before {
+.sponsors__wrap__content__link::before {
   content: 'Перейти на официальный сайт "Орни групп"';
 }
 
-@media (min-width: 567px) and (max-width: 768px) {
-  .sponsors {
-    height: 480px;
+@media (min-width: 768px) and (max-width: 992px) {
+  .sponsors__wrap {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
-  .sponsors__divider {
-    margin-bottom: 40px;
+  .sponsors__wrap__mask {
+    height: 300px;
+    width: 300px;
   }
-  .sponsors .container {
-    padding: 20px 10px;
+  .sponsors__wrap__content {
+    width: 450px;
+    padding: 30px;
   }
-  .sponsors__mask {
-    height: 380px;
-  }
-  .sponsors__content {
-    height: 400px;
+  .sponsors__wrap__content__link {
+    height: 40px;
+    width: 350px;
+    padding: 10px 15px;
     margin-top: 40px;
   }
-  .sponsors__content__logo {
-    display: none;
+}
+@media (min-width: 567px) and (max-width: 768px) {
+  .sponsors__wrap {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-top: 20px;
   }
-  .sponsors__content__text {
+  .sponsors__wrap__mask {
+    height: 150px;
+    width: 150px;
+  }
+  .sponsors__wrap__content {
+    width: 400px;
+    padding: 0 20px;
+  }
+  .sponsors__wrap__content__text {
     font-size: 16px;
     line-height: 24px;
   }
-  .sponsors__content__link {
-    height: 30px;
-    width: 90vw;
+  .sponsors__wrap__content__link {
+    height: 40px;
+    width: calc(100% - 40px);
     padding: 10px 0;
     margin-top: 20px;
   }
 }
 @media (min-width: 352px) and (max-width: 576px) {
-  .sponsors {
-    height: 450px;
+  .sponsors__wrap {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-top: 0px;
   }
-  .sponsors__divider {
-    margin-bottom: 20px;
+  .sponsors__wrap__mask {
+    height: 80px;
+    width: 80px;
   }
-  .sponsors .container {
-    padding: 20px 10px;
+  .sponsors__wrap__content {
+    width: 280px;
+    padding: 0 10px;
+    margin-left: 20px;
   }
-  .sponsors__mask {
-    height: 380px;
-  }
-  .sponsors__content {
-    height: 400px;
-    margin-top: 20px;
-  }
-  .sponsors__content__logo {
-    display: none;
-  }
-  .sponsors__content__text {
+  .sponsors__wrap__content__text {
     font-size: 14px;
     line-height: 20px;
   }
-  .sponsors__content__link {
+  .sponsors__wrap__content__link {
     height: 30px;
-    width: 90vw;
-    padding: 10px 0;
+    width: 100%;
+    padding: 5px 0;
     margin-top: 20px;
   }
 }
@@ -3602,7 +3617,7 @@ footer .footer-wrap__menu-sect__products__submenu__item:hover:after {
   -webkit-transform: scale(1.3);
           transform: scale(1.3);
 }
-.factory__wrap__gallery .vertical {
+.factory__wrap__gallery .vertical-left {
   height: 420px;
   grid-column: 1/2;
   grid-row: 1/3;

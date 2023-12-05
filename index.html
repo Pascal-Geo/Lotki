@@ -60,7 +60,7 @@
                     </ul>
                 </nav>
                 <div class="header-group-btn">
-                    <button class="header-group-btn__item btn-dark">Заказать звонок</button>
+                    <button class="header-group-btn__item modal-trigger btn-dark">Заказать звонок</button>
                     <a href="./assets/files/Ks-pascal производство лотков 2023 год (1).pdf" class="header-group-btn__item upload btn-light">Розничный прайс</a>
                 </div>
                 <div class="mobile-btn">
@@ -185,7 +185,7 @@
                 <h2 class="exp__wrap__content__title title">Немного о нас</h2>
                 <div class="exp__wrap__content__descr">
                     Мы привыкли работать по принципу «WIN-WIN» — то есть работать на результат, предлагая по-настоящему технологичную продукцию, соответствующей стандартам качества мирового уровня.
-                    <br>Мы глубоко уважаем наших клиентов и гордимся правом представлять рынку России продукцию и квалификацию специалистов от лица нашего завода.                
+                    <br>Мы глубоко уважаем наших клиентов и гордимся правом представлять рынку России продукцию и квалификацию специалистов от лица нашего завода.            
                 </div>
             </div>
         </div>
@@ -349,16 +349,13 @@
             <h2 class="sponsors__title title">Официальный дистрибьютер</h2>
         </div>
         <div class="sponsors__divider"></div>
-        <div class="sponsors__mask">
-            <div class="sponsors__mask__fon">
-                <div class="container">
-                    <div class="sponsors__content">
-                        <div class="sponsors__content__text">
-                            Компания ООО «Орни групп» является дистрибьютером нашей продукции на территории Республики Беларусь. Партнерские отношения развиваются благотворно на протяжении всего срока сотрудничества. За это время мы успешно реализовали большое количество объектов, в числе которых были как государственные, так и частные крупные организации. Благодаря нашим производственным мощностям мы полностью удовлетворяем все запросы конечного клиента ООО «Орни групп».
-                        </div>
-                        <a href="https://orni.by/" class="sponsors__content__link btn-dark">Перейти на официальный сайт "Орни групп"</a>
-                    </div>
+        <div class="sponsors__wrap">
+            <div class="sponsors__wrap__mask"></div>
+            <div class="sponsors__wrap__content">
+                <div class="sponsors__wrap__content__text">
+                    Компания ООО «Орни групп» является дистрибьютером нашей продукции на территории Республики Беларусь. Партнерские отношения развиваются благотворно на протяжении всего срока сотрудничества. За это время мы успешно реализовали большое количество объектов, в числе которых были как государственные, так и частные крупные организации. Благодаря нашим производственным мощностям мы полностью удовлетворяем все запросы конечного клиента ООО «Орни групп».
                 </div>
+                <a href="https://orni.by/" class="sponsors__wrap__content__link btn-dark">Перейти на официальный сайт "Орни групп"</a>
             </div>
         </div>
     </section>
@@ -525,11 +522,6 @@
     </footer>
     <script src="https://unpkg.com/imask"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-    <script>
-        Fancybox.bind('[data-fancybox="clients-letters"]', {
-            // Your custom options
-        });
-    </script>
     <script src="./script.js"></script>
 </body>
 </html>
